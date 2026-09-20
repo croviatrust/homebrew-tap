@@ -1,9 +1,8 @@
 # Rendered by scripts/render.py from the v0.1.5 release of croviatrust/causari.
 # Do not edit by hand; run the workflow or the script.
 class Causari < Formula
-  desc "AI-written code has no author. It has causes. Causari proves them."
+  desc "AI-written code has no author, it has causes: Causari proves them"
   homepage "https://causari.dev"
-  version "0.1.5"
   license "Apache-2.0"
 
   on_macos do
@@ -34,7 +33,7 @@ class Causari < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/causari --version")
-    assert_match version.to_s, shell_output("#{bin}/re --version")
+    assert_match "0.1.5", shell_output("#{bin}/causari --version")
+    assert_match "0.1.5", shell_output("#{bin}/re --version")
   end
 end

@@ -59,9 +59,8 @@ def main() -> int:
     rb = f'''# Rendered by scripts/render.py from the {tag} release of {REPO}.
 # Do not edit by hand; run the workflow or the script.
 class Causari < Formula
-  desc "AI-written code has no author. It has causes. Causari proves them."
+  desc "AI-written code has no author, it has causes: Causari proves them"
   homepage "https://causari.dev"
-  version "{version}"
   license "Apache-2.0"
 
   on_macos do
@@ -87,8 +86,8 @@ class Causari < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{{bin}}/causari --version")
-    assert_match version.to_s, shell_output("#{{bin}}/re --version")
+    assert_match "{version}", shell_output("#{{bin}}/causari --version")
+    assert_match "{version}", shell_output("#{{bin}}/re --version")
   end
 end
 '''

@@ -42,6 +42,6 @@ jobs:
       - name: brew audit and install
         run: |
           brew tap croviatrust/tap "$PWD"
-          brew audit --strict --online croviatrust/tap/causari || true
+          brew audit --strict --online croviatrust/tap/causari
           brew install croviatrust/tap/causari
           causari --version && re --version
