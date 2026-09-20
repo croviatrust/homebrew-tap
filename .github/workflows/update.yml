@@ -1,0 +1,47 @@
+name: update
+
+# Re-render Formula/causari.rb from the latest causari release. Runs every
+# six hours and on demand; a release lands here without any cross-repo token.
+
+on:
+  schedule:
+    - cron: "23 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "release tag (default: latest)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: render
+        run: python3 scripts/render.py ${{ inputs.tag }}
+      - name: commit if changed
+        run: |
+          if git diff --quiet; then echo "formula unchanged"; exit 0; fi
+          git config user.name "causari-tap[bot]"
+          git config user.email "noreply@causari.dev"
+          git add Formula/causari.rb
+          git commit -m "causari: $(grep -m1 'version "' Formula/causari.rb | sed 's/.*"\(.*\)"/\1/')"
+          git push
+
+  audit:
+    needs: render
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+      - name: brew audit and install
+        run: |
+          brew tap croviatrust/tap "$PWD"
+          brew audit --strict --online croviatrust/tap/causari || true
+          brew install croviatrust/tap/causari
+          causari --version && re --version
