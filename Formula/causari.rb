@@ -1,4 +1,4 @@
-# Rendered by scripts/render.py from the v0.1.5 release of croviatrust/causari.
+# Rendered by scripts/render.py from the v0.2.0 release of croviatrust/causari.
 # Do not edit by hand; run the workflow or the script.
 class Causari < Formula
   desc "AI-written code has no author, it has causes: Causari proves them"
@@ -7,33 +7,32 @@ class Causari < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/croviatrust/causari/releases/download/v0.1.5/re-v0.1.5-aarch64-apple-darwin.tar.gz"
-      sha256 "03729973c73785a7a30647f2a0985a5b4b9bb5656615c7a7084e3b04174103e5"
+      url "https://github.com/croviatrust/causari/releases/download/v0.2.0/causari-v0.2.0-aarch64-apple-darwin.tar.gz"
+      sha256 "feb169d357bc7f1a7693936af9cd21f911ffccac889b83127272fcd9b80b6699"
     end
     on_intel do
-      url "https://github.com/croviatrust/causari/releases/download/v0.1.5/re-v0.1.5-x86_64-apple-darwin.tar.gz"
-      sha256 "57d6ad0e8f26a3aaf192266aae8dabac0ff2d04a65e119c905dce9139d190680"
+      url "https://github.com/croviatrust/causari/releases/download/v0.2.0/causari-v0.2.0-x86_64-apple-darwin.tar.gz"
+      sha256 "3b415d5d844bf4b28596f63eed1677bcccc2c8225202f7997dbb6b72222b69eb"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/croviatrust/causari/releases/download/v0.1.5/re-v0.1.5-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "59333694917aed257b23eed631fbab59252a7355d738aeb3819df1f8a26aef41"
+      url "https://github.com/croviatrust/causari/releases/download/v0.2.0/causari-v0.2.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "ec9c2f23de8557e6d64ce9485624e42d1524d708e36b06afdd2070894f08c004"
     end
     on_intel do
-      url "https://github.com/croviatrust/causari/releases/download/v0.1.5/re-v0.1.5-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "08b723450b9cd7e39983b4464cf173ce9959ae76da5a885b326de25573e3346f"
+      url "https://github.com/croviatrust/causari/releases/download/v0.2.0/causari-v0.2.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "e60b8745a55b48cb2af6aa5e6f710291c939f0b84e9ee4feb8be27e532980fc8"
     end
   end
 
   def install
-    bin.install "re"
-    bin.install_symlink bin/"re" => "causari"
+    bin.install "causari", "re"
   end
 
   test do
-    assert_match "0.1.5", shell_output("#{bin}/causari --version")
-    assert_match "0.1.5", shell_output("#{bin}/re --version")
+    assert_match "0.2.0", shell_output("#{bin}/causari --version")
+    assert_match "0.2.0", shell_output("#{bin}/re --version")
   end
 end
