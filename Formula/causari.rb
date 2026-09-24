@@ -1,4 +1,4 @@
-# Rendered by scripts/render.py from the v0.2.0 release of croviatrust/causari.
+# Rendered by scripts/render.py from the v0.3.0 release of croviatrust/causari.
 # Do not edit by hand; run the workflow or the script.
 class Causari < Formula
   desc "AI-written code has no author, it has causes: Causari proves them"
@@ -7,23 +7,23 @@ class Causari < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/croviatrust/causari/releases/download/v0.2.0/causari-v0.2.0-aarch64-apple-darwin.tar.gz"
-      sha256 "feb169d357bc7f1a7693936af9cd21f911ffccac889b83127272fcd9b80b6699"
+      url "https://github.com/croviatrust/causari/releases/download/v0.3.0/causari-v0.3.0-aarch64-apple-darwin.tar.gz"
+      sha256 "76249909ad6ea3720248f0892d857460593aa5ef22f33410f72d7a856cbe01ed"
     end
     on_intel do
-      url "https://github.com/croviatrust/causari/releases/download/v0.2.0/causari-v0.2.0-x86_64-apple-darwin.tar.gz"
-      sha256 "3b415d5d844bf4b28596f63eed1677bcccc2c8225202f7997dbb6b72222b69eb"
+      url "https://github.com/croviatrust/causari/releases/download/v0.3.0/causari-v0.3.0-x86_64-apple-darwin.tar.gz"
+      sha256 "474e808f83b648f8e00039fcffa7425b4056c560ad94f1f9fc1024a33255416b"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/croviatrust/causari/releases/download/v0.2.0/causari-v0.2.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "ec9c2f23de8557e6d64ce9485624e42d1524d708e36b06afdd2070894f08c004"
+      url "https://github.com/croviatrust/causari/releases/download/v0.3.0/causari-v0.3.0-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "877a46b1081d93b846537c6506a236c7fb1628ecda5d321994ebdebc301001b5"
     end
     on_intel do
-      url "https://github.com/croviatrust/causari/releases/download/v0.2.0/causari-v0.2.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "e60b8745a55b48cb2af6aa5e6f710291c939f0b84e9ee4feb8be27e532980fc8"
+      url "https://github.com/croviatrust/causari/releases/download/v0.3.0/causari-v0.3.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "84243a7d08894e0b425eaaf2e6f7d1c04847478fb9f18070721666d183a2ffe8"
     end
   end
 
@@ -32,7 +32,7 @@ class Causari < Formula
   end
 
   test do
-    assert_match "0.2.0", shell_output("#{bin}/causari --version")
-    assert_match "0.2.0", shell_output("#{bin}/re --version")
+    assert_match "0.3.0", shell_output("#{bin}/causari --version")
+    assert_match "0.3.0", shell_output("#{bin}/re --version")
   end
 end
