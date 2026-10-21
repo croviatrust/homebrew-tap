@@ -1,7 +1,7 @@
 # croviatrust/homebrew-tap
 
 Homebrew tap for [Causari](https://causari.dev): AI-written code has no
-author. It has causes. Causari proves them.
+author. It has causes. Causari records them.
 
 ```sh
 brew install croviatrust/tap/causari
