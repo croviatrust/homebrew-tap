@@ -59,7 +59,7 @@ def main() -> int:
     rb = f'''# Rendered by scripts/render.py from the {tag} release of {REPO}.
 # Do not edit by hand; run the workflow or the script.
 class Causari < Formula
-  desc "AI-written code has no author, it has causes: Causari proves them"
+  desc "AI-written code has no author. It has causes. Causari records them"
   homepage "https://causari.dev"
   license "Apache-2.0"
 
